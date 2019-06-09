@@ -1,0 +1,44 @@
+{
+  "name": "innvinceable.github.io",
+  "version": "1.0.0",
+  "description": "Profile website",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnVinceable/InnVinceable.github.io.git"
+  },
+  "author": "Vincent de Gois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnVinceable/InnVinceable.github.io/issues"
+  },
+  "homepage": "https://github.com/InnVinceable/InnVinceable.github.io#readme",
+  "dependencies": {
+    "copy-webpack-plugin": "^5.0.3",
+    "getsy": "^0.9.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-markdown": "^4.0.8",
+    "react-syntax-highlighter": "^10.3.0",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

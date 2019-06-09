@@ -1,0 +1,28 @@
+@import "../../_variables.scss";
+
+.imageContainer {
+
+    .imageFrame {
+        border-radius: 100%;
+        width:100%;
+        transition: all .3s ease;
+        cursor: pointer;
+
+        &.lightUp {
+            transform: translateY(-115px);
+            border-color: $vince-greenish;
+        }
+    }
+
+    .shadow {
+        width: 100%;
+        height: 20px;
+        background-image: radial-gradient(
+                closest-side,
+                rgba(0, 0, 0, 0.432),
+                #00000000
+            );
+    }
+
+
+}
