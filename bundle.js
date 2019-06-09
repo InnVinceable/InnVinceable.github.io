@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5294fbc911be0dd5b632";
+/******/ 	var hotCurrentHash = "c0ac4f83c4a378a32c13";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -347,7 +347,7 @@
 /******/ 			var outdatedModules = [updateModuleId];
 /******/ 			var outdatedDependencies = {};
 /******/
-/******/ 			var queue = outdatedModules.slice().map(function(id) {
+/******/ 			var queue = outdatedModules.map(function(id) {
 /******/ 				return {
 /******/ 					chain: [id],
 /******/ 					id: id
@@ -524,12 +524,15 @@
 /******/ 			moduleId = outdatedModules[i];
 /******/ 			if (
 /******/ 				installedModules[moduleId] &&
-/******/ 				installedModules[moduleId].hot._selfAccepted
-/******/ 			)
+/******/ 				installedModules[moduleId].hot._selfAccepted &&
+/******/ 				// removed self-accepted modules should not be required
+/******/ 				appliedUpdate[moduleId] !== warnUnexpectedRequire
+/******/ 			) {
 /******/ 				outdatedSelfAcceptedModules.push({
 /******/ 					module: moduleId,
 /******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
 /******/ 				});
+/******/ 			}
 /******/ 		}
 /******/
 /******/ 		// Now in "dispose" phase
@@ -596,7 +599,7 @@
 /******/ 			}
 /******/ 		}
 /******/
-/******/ 		// Not in "apply" phase
+/******/ 		// Now in "apply" phase
 /******/ 		hotSetStatus("apply");
 /******/
 /******/ 		hotCurrentHash = hotUpdateNewHash;
